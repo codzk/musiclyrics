@@ -27,6 +27,10 @@ function App() {
     <div className="App">
       <h1>Lyrics Search</h1>
 
+      
+
+
+
   
     </div>
 
