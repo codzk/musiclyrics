@@ -19,6 +19,14 @@ function SearchForm({ onSearch }) {
                     onChange={ (e) => setArtist(e.target.value)}
                     />
             </div>
+            <div>
+                <label>Title:</label>
+                <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                />
+            </div>
             <button type="submit">Search</button>   
         </form>
     );

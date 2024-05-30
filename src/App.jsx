@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import SearchForm from "./components/SearchForm";
+import LyricsDisplay from "./components/LyricsDisplay";
 
 function App() {
 
@@ -7,13 +9,13 @@ function App() {
 
   const fetchLyrics = async (artist, title) => {
     try {
-      const response = await fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`);
+      const response = await fetch(`https://api.musixmatch.com/ws/1.1/`);
       const data = await response.json();
       if (data.lyrics) {
         setLyrics(data.lyrics);
         setError('');
       }else{
-        setLyrics('')
+        setLyrics('');
         setLyrics('Lyrics not found.');
       }
     } catch (err){
@@ -26,18 +28,10 @@ function App() {
 
     <div className="App">
       <h1>Lyrics Search</h1>
+      <SearchForm onSearch={fetchLyrics}/>
+      <LyricsDisplay lyrics={lyrics} error={error}/>
 
-      
-
-
-
-  
     </div>
-
-  
-
-
-    
   );
 }
 
